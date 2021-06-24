@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    style="@style/Theme.AppCompat.DayNight.NoActionBar"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/appbarLayout">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:animateLayoutChanges="true"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:id="@+id/toolbar" />
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/purple_500"
+            app:tabTextColor="@color/white"
+            app:tabIndicatorColor="@color/white"
+            app:tabIndicatorAnimationMode="elastic"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/appbarLayout"
+            app:layout_constraintTop_toBottomOf="@+id/appbarLayout"
+            app:tabMode="scrollable"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/loading_progress_container"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Getting Data"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            style="@style/TextAppearance.MdcTypographyStyles.Body1"
+            android:gravity="center_horizontal" />
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:layout_width="200sp"
+            android:layout_gravity="center"
+            android:layout_margin="20sp"
+            android:indeterminate="true"
+            app:trackCornerRadius="10dp"
+            android:id="@+id/loading_progress"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

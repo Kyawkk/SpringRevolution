@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <View
+        android:layout_width="50dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bottom_sheet_dash"/>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_margin="10dp"
+        android:background="@drawable/video_view_bg"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:visibility="invisible"
+            android:gravity="center"
+            android:id="@+id/videoView_container"
+            android:layout_height="wrap_content">
+            <VideoView
+                android:layout_width="match_parent"
+                android:layout_height="200sp"
+                android:layout_gravity="center"
+                android:background="@drawable/video_view_bg"
+                android:id="@+id/videoView"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200sp"
+            android:layout_gravity="center"
+            android:background="@drawable/overlay_bg"
+            android:id="@+id/overlay"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/loading_bar_container"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Playing Video"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                style="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                android:gravity="center_horizontal" />
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:progressTint="@color/purple_500"
+                android:layout_gravity="center"
+                android:id="@+id/loading_bar"
+                app:hideAnimationBehavior="outward"
+                android:indeterminate="true"
+                app:trackCornerRadius="10dp"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200sp"
+            android:layout_gravity="center"
+            android:id="@+id/cover_img"
+            android:scaleType="centerCrop"
+            android:background="@drawable/video_view_bg"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="9"
+            android:layout_gravity="bottom"
+            android:padding="5sp"
+            android:visibility="invisible"
+            android:id="@+id/player_item_container"
+            android:background="@drawable/player_item_bg"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:id="@+id/start_duration"
+                android:text="00:00"/>
+
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:progressTint="@color/purple_500"
+                android:id="@+id/duration_bar"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:id="@+id/total_duration"
+                android:text="00:00"/>
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#E0E0E0"
+        android:layout_margin="10dp"
+        android:layout_height="1dp"/>
+
+
+    <!--<com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        app:cardCornerRadius="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/videoView_container"
+            android:layout_height="20sp">
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:id="@+id/video_inside_container"
+                android:layout_height="wrap_content">
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/loading"
+                    android:layout_centerInParent="true"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/player_item_bg"
+                    android:weightSum="9"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:clickable="true"
+                        android:id="@+id/play_button"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/ic_baseline_play_arrow_24"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:textAlignment="center"
+                        android:text="00:00"
+                        android:id="@+id/beginning_time"
+                        android:gravity="center_horizontal" />
+                    <ProgressBar
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:progressTint="@color/purple_500"
+                        android:id="@+id/duration_bar"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:textAlignment="center"
+                        android:text="00:00"
+                        android:id="@+id/duration_text"
+                        android:gravity="center_horizontal" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_weight="2"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:id="@+id/full_screen"
+                        android:src="@drawable/ic_baseline_fullscreen_24"
+                        />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/display_image"
+                android:visibility="gone"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="centerCrop"
+                android:layout_centerInParent="true"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:id="@+id/left_pointer"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_baseline_chevron_left_24"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="180dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/right_pointer"
+                android:src="@drawable/ic_baseline_chevron_right_24"
+                android:layout_alignParentRight="true" />
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DESCRIPTION"
+        android:textFontWeight="600"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        style="@style/TextAppearance.MdcTypographyStyles.Headline6"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        style="@style/TextAppearance.MdcTypographyStyles.Subtitle1"
+        android:id="@+id/bottom_sheet_desc"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="10sp"
+        android:justificationMode="none"
+        android:layout_marginLeft="10sp"
+        android:layout_marginBottom="20sp"
+        android:text="Hello World"/>
+</LinearLayout>

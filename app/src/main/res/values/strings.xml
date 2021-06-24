@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Spring Revolution</string>
+    <string name="no_internet_description">Poor network connection detected.<br></br> Please check your connectivity.</string>
+</resources>
